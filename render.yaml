@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: viora-auth
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: ALLOWED_EXTENSION_IDS
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
